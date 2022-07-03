@@ -7,7 +7,7 @@ def transform_data():
     H23.
 
     """
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
 
     import pandas as pd
 
