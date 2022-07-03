@@ -10,16 +10,16 @@ def transform_data():
     import pandas as pd
 
     for j in range(1995, 2022):
-        if j in [1995,1999]:
+        if j in range(1995,2000):
             df= pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=3)
             df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
-        if j in [2000, 2015]:
+        if j in range(2000, 2016):
             df = pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=2)
             df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
         if j in [2016, 2017]:
             df = pd.read_excel('data_lake/landing/{}.xls'.format(j), header=2)
             df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
-        if j in [2018, 2021]:
+        if j in range(2018, 2022):
             df = pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=0)
             df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
     #raise NotImplementedError("Implementar esta función")
