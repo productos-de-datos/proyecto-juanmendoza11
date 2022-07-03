@@ -36,6 +36,7 @@ def create_data_lake():
         'business/features',
         'business/forecasts',]
 
+    
     for i in business_layer:
         os.mkdir(os.path.join("data_lake", i))
 
