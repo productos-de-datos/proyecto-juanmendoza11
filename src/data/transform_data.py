@@ -31,4 +31,4 @@ if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
-    ingest_data()
+    transform_data()
