@@ -40,7 +40,6 @@ def create_data_lake():
     for i in business_layer:
         os.mkdir(os.path.join("data_lake", i))
 
-
 if __name__ == "__main__":
     import doctest
 
