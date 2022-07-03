@@ -28,7 +28,9 @@ def ingest_data():
             file = requests.get(url, allow_redirects=True)
             open('data_lake/landing/{}.xls'.format(ano),"wb").write(file.content)
 
-
+def test_ruta_origen():
+    assert set(os.listdir()) - set(['.git', '.github', '.gitignore',
+                                    '.vscode', 'data_lake', 'grader.py', 'Makefile', 'README.md', 'src']) == set()
 
 if __name__ == "__main__":
     import doctest
