@@ -15,8 +15,10 @@ def clean_data():
     import glob
     import pandas as pd
     
+    #Se crea una variable con todos los archivos csv.
     ruta = glob.glob(r'data_lake/raw/*.csv')
 
+    #se crea un bucle para tomar los archivos csv y transporner las horas (24) para unificar bajo las tres columnas [fecha, hora y precio]
     for i, archivo in enumerate(ruta):
         if i == 0:
             inicial = pd.read_csv(archivo, index_col=None, header=0)
@@ -39,5 +41,5 @@ def clean_data():
 
 if __name__ == "__main__":
     import doctest
-    clean_data()
     doctest.testmod()
+    clean_data()
