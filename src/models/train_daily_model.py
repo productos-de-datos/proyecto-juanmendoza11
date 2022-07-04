@@ -29,7 +29,7 @@ def train_daily_model():
     glm = LinearRegression()
     glm.fit(x_train, y_train)
     
-    r2_score(y_test,regression.predict(x_test))
+    r2_score(y_test,glm.predict(x_test))
 
     pickle.dump(glm, open('src/models/precios-diarios.pkl', 'wb'))
     
