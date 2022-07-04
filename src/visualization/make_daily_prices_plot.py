@@ -9,7 +9,7 @@ def make_daily_prices_plot():
     #raise NotImplementedError("Implementar esta función")
     
     import pandas as pd
-    from matplotlib import pyplot as plt
+    import matplotlib.pyplot as plt
     
     df = pd.read_csv('data_lake/business/precios-diarios.csv')
     daily_prices_plot = df.plot(x='fecha', y = 'precio', kind = 'line').get_figure()
