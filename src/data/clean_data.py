@@ -12,9 +12,9 @@ def clean_data():
 
 
     """
-    import pandas as pd
     import glob
-
+    import pandas as pd
+    
     ruta = glob.glob(r'data_lake/raw/*.csv')
 
     for i, archivo in enumerate(ruta):
@@ -22,8 +22,7 @@ def clean_data():
             inicial = pd.read_csv(archivo, index_col=None, header=0)
             hours = inicial.iloc[:, :25]
             hours.columns = ['fecha']+[('0'+str(i))[-2:] for i in range(24)]
-            inicial_transform = hours.melt(
-                id_vars='fecha', var_name='hora', value_name='precio')
+            inicial_transform = hours.melt(id_vars='fecha', var_name='hora', value_name='precio')
             final = inicial_transform
         else:
             inicial = pd.read_csv(archivo, index_col=None, header=0)
