@@ -12,16 +12,15 @@ def compute_daily_prices():
 
 
     """
+    #raise NotImplementedError("Implementar esta función")
     import pandas as pd
-
+    
+    #Se usa pd para leer el archivo limpio, luego se computa la media del precio diario. Se transfiere el archivo a la capa business. 
     precios_horarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
     df = precios_horarios.groupby(by="fecha",as_index=False).agg({"precio":"mean"})
     df.to_csv('data_lake/business/precios-diarios.csv', encoding='utf-8', index=False)
     
-    
-    #raise NotImplementedError("Implementar esta función")
-
 if __name__ == "__main__":
     import doctest
-    compute_daily_prices()
     doctest.testmod()
+    compute_daily_prices()
