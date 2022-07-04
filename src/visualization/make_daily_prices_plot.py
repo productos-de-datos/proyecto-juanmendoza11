@@ -16,8 +16,6 @@ def make_daily_prices_plot():
     daily_prices_plot = df.plot(x='fecha', y = 'precio', kind = 'line').get_figure()
     daily_prices_plot.savefig('data_lake/business/reports/figures/daily_prices.png')
 
-
-
 if __name__ == "__main__":
     import doctest
     make_daily_prices_plot()
