@@ -15,6 +15,7 @@ def make_monthly_prices_plot():
     monthly_prices_plot = df.plot(x='fecha', y = 'precio', kind = 'line').get_figure()
     monthly_prices_plot.savefig('data_lake/business/reports/figures/monthly_prices.png')
 
+
 if __name__ == "__main__":
     import doctest
     make_monthly_prices_plot()
