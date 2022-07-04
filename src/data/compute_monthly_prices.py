@@ -15,15 +15,13 @@ def compute_monthly_prices():
     #raise NotImplementedError("Implementar esta función")
     import pandas as pd
     
+    #Se usa pd para leer el archivo limpio, luego se computa la media del precio mensual. Se transfiere el archivo a la capa business. 
     df = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
     df['fecha'] = pd.to_datetime(df['fecha'])
     df = df.set_index('fecha').resample("M")['precio'].mean()
     df.to_csv('data_lake/business/precios-mensuales.csv', index=True)
 
-    #raise NotImplementedError("Implementar esta función")
-
-
 if __name__ == "__main__":
     import doctest
-    compute_monthly_prices()
     doctest.testmod()
+    compute_monthly_prices()
