@@ -18,6 +18,7 @@ def ingest_data():
     import requests
     ruta = "https://github.com/jdvelasq/datalabs/blob/master/datasets/precio_bolsa_nacional/xls/"
 
+    #Se genera un bucle para extraer los archivos de la ruta, para los años 2016 y 2017, se hace un tratamienot diferente por la extension de los mismos.
     for ano in range(1995, 2022):
         if ano in [2016,2017]:
             url = ruta + "{}.xls?raw=true".format(ano)
@@ -31,6 +32,5 @@ def ingest_data():
 
 if __name__ == "__main__":
     import doctest
-
     doctest.testmod()
     ingest_data()
