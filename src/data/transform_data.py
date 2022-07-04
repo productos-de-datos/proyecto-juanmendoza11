@@ -5,10 +5,12 @@ def transform_data():
     un archivo CSV por cada archivo XLS en la capa landing. Cada archivo CSV
     tiene como columnas la fecha en formato YYYY-MM-DD y las horas H00, ...,
     H23.
-"""
+    """
 
+    #raise NotImplementedError("Implementar esta función")
     import pandas as pd
-
+    
+    #Se crea un bucle para estandarizar los archivos obtenidos, dejandolos como archivos con solo un header y bajo la extension .csv.
     for j in range(1995, 2022):
         if j in range(1995,2000):
             df= pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=3)
@@ -22,9 +24,9 @@ def transform_data():
         if j in range(2018, 2022):
             df = pd.read_excel('data_lake/landing/{}.xlsx'.format(j), header=0)
             df.to_csv('data_lake/raw/{}.csv'.format(j), index=None)
-    #raise NotImplementedError("Implementar esta función")
+
 
 if __name__ == "__main__":
     import doctest
-    transform_data()
     doctest.testmod()
+    transform_data()
