@@ -13,8 +13,8 @@ def make_daily_prices_plot():
     from matplotlib import pyplot as plt
     
     df = pd.read_csv('data_lake/business/precios-diarios.csv')
-    plot = df.plot(x='fecha', y = 'precio', kind = 'scatter').get_figure()
-    plot.savefig('data_lake/business/reports/figures/daily_prices.png')
+    daily_prices_plot = df.plot(x='fecha', y = 'precio', kind = 'line').get_figure()
+    daily_prices_plot.savefig('data_lake/business/reports/figures/daily_prices.png')
 
 
 
