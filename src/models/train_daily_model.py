@@ -14,12 +14,12 @@ def train_daily_model():
     #Se crea un modelo de regresion lineal simple donde la variable explicada es el precio en funcion del tiempo. Serie de tiempo
     df = pd.read_csv("data_lake/business/features/precios-diarios.csv", encoding = 'utf-8', sep=',')
 
-    df['Fecha'] = pd.to_datetime(df['Fecha'], format='%Y-%m-%d')
+    df['fecha'] = pd.to_datetime(df['fecha'], format='%Y-%m-%d')
     df['year'], df['month'], df['day'] = \
-        df['Fecha'].dt.year, df['Fecha'].dt.month, df['Fecha'].dt.day
+        df['Fecha'].dt.year, df['fecha'].dt.month, df['fecha'].dt.day
     
-    fechas = df.copy().drop('Fecha', axis=1)
-    precios = x_total.pop('Precio')
+    fechas = df.copy().drop('fecha', axis=1)
+    precios = x_total.pop('precio')
     
     x_train = fechas[:round(fechas.shape[0]*0.75)]
     x_test = fechas[round(fechas.shape[0]*0.75):]
