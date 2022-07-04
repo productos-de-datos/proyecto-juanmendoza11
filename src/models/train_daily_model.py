@@ -6,29 +6,32 @@ def train_daily_model():
 
 
     """
-    import pickle
-    import numpy as np
-    import pandas as pd
     from sklearn.linear_model import LinearRegression
-    from sklearn.model_selection import train_test_split
-    from sklearn.metrics import mean_squared_error
-    from sklearn.ensemble import RandomForestRegressor
+    from sklearn.metrics import r2_score
+    import pandas as pd
+    import pickle
 
-    
-    
     #Se crea un modelo de regresion lineal simple donde la variable explicada es el precio en funcion del tiempo. Serie de tiempo
     df = pd.read_csv("data_lake/business/features/precios-diarios.csv", encoding = 'utf-8', sep=',')
 
-    df["fecha"] = pd.to_datetime(df["fecha"]).dt.strftime('%Y%m%d')
-    fecha = np.array(df['fecha']).reshape(-1,1)
-    precio = np.array(df['precio']).reshape(-1,1)
+    df['Fecha'] = pd.to_datetime(df['Fecha'], format='%Y-%m-%d')
+    df['year'], df['month'], df['day'] = \
+        df['Fecha'].dt.year, df['Fecha'].dt.month, df['Fecha'].dt.day
     
-    (X_train, X_test, y_train, y_test,) = train_test_split(fecha, precio, test_size=0.25, random_state=100000,)
-    glm = RandomForestRegressor(n_estimators=100, max_features='sqrt', n_jobs=-1, oob_score = True, random_state = 100000)
-    glm.fit(X_train,y_train)
+    fechas = df.copy().drop('Fecha', axis=1)
+    precios = x_total.pop('Precio')
+    
+    x_train = fechas[:round(fechas.shape[0]*0.75)]
+    x_test = fechas[round(fechas.shape[0]*0.75):]
+    y_train = precios[:round(fechas.shape[0]*0.75)]
+    y_test = precios[round(fechas.shape[0]*0.75):]
+    
+    glm = LinearRegression()
+    glm.fit(x_train, y_train)
+    
+    r2_score(y_test,regression.predict(x_test))
 
-    pickle.dump(glm, open('src/models/precios-diarios.pickle', 'wb'))
-
+    pickle.dump(glm, open('src/models/precios-diarios.pkl', 'wb'))
     
     #raise NotImplementedError("Implementar esta función")
 
