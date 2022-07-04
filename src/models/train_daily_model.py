@@ -19,7 +19,7 @@ def train_daily_model():
         df['fecha'].dt.year, df['fecha'].dt.month, df['fecha'].dt.day
     
     fechas = df.copy().drop('fecha', axis=1)
-    precios = x_total.pop('precio')
+    precios = fechas.pop('precio')
     
     x_train = fechas[:round(fechas.shape[0]*0.75)]
     x_test = fechas[round(fechas.shape[0]*0.75):]
