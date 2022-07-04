@@ -6,10 +6,18 @@ def make_monthly_prices_plot():
 
     El archivo se debe salvar en formato PNG en data_lake/business/reports/figures/monthly_prices.png.
     """
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
+    import matplotlib.pyplot as plt
+    import pandas as pd
     
+    df = pd.read_csv('data_lake/business/precios-mensuales.csv')
+    plot = df.plot(x='fecha', y = 'precio', kind = 'line').get_figure()
+    plot.savefig('data_lake/business/reports/figures/monthly_prices.png')
+
+
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    make_monthly_prices_plot()
