@@ -13,7 +13,7 @@ def make_daily_prices_plot():
 
     daily_prices = pd.read_csv(
         'data_lake/business/precios-diarios.csv', index_col=None, header=0)
-    daily_prices.plot.line(x='Fecha', y='Precio').get_figure().savefig(
+    daily_prices.plot.line(x='fecha', y='precio').get_figure().savefig(
         'data_lake/business/reports/figures/daily_prices.png')
 #raise NotImplementedError("Implementar esta función")
 
