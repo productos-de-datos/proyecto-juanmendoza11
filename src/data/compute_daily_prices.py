@@ -15,7 +15,7 @@ def compute_daily_prices():
     import pandas as pd
 
     precios_horarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
-    df = datos.groupby(by="fecha",as_index=False).agg({"precio":"mean"})
+    df = precios_horarios.groupby(by="fecha",as_index=False).agg({"precio":"mean"})
     df.to_csv('data_lake/business/precios-diarios.csv', encoding='utf-8', index=False)
     
     
