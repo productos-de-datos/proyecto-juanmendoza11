@@ -22,11 +22,12 @@ def create_data_lake():
 
     """
     # raise NotImplementedError("Implementar esta función")
-
+    
     import os
     os.mkdir('data_lake')
     first_layer = ['landing', 'raw', 'cleansed', 'business']
 
+    #Se crea el directorio madre y se hace un bucle para generar las subcarpetas con la segunda capa del negocio. Se crean las variables con las cuales hacer el join.
     for i in first_layer:
         os.mkdir(os.path.join('data_lake', i))
 
@@ -42,6 +43,5 @@ def create_data_lake():
 
 if __name__ == "__main__":
     import doctest
-
     doctest.testmod()
     create_data_lake()
