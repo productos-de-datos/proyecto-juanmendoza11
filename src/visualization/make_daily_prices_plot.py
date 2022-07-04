@@ -5,7 +5,6 @@ def make_daily_prices_plot():
     lines que representa los precios promedios diarios.
 
     El archivo se debe salvar en formato PNG en data_lake/business/reports/figures/daily_prices.png.
-
     """
     #raise NotImplementedError("Implementar esta función")
     
