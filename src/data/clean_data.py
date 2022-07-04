@@ -28,7 +28,7 @@ def clean_data():
         else:
             inicial = pd.read_csv(archivo, index_col=None, header=0)
             hours = inicial.iloc[:, :25]
-            hours.columns = ['Fecha']+[('0'+str(i))[-2:] for i in range(24)]
+            hours.columns = ['fecha']+[('0'+str(i))[-2:] for i in range(24)]
             inicial_transform = hours.melt(id_vars='fecha', var_name='hora', value_name='precio')
             final = pd.concat([final, inicial_transform])
     final.to_csv('data_lake/cleansed/precios-horarios.csv', index=None)
