@@ -16,7 +16,7 @@ def train_daily_model():
 
     df['fecha'] = pd.to_datetime(df['fecha'], format='%Y-%m-%d')
     df['year'], df['month'], df['day'] = \
-        df['Fecha'].dt.year, df['fecha'].dt.month, df['fecha'].dt.day
+        df['fecha'].dt.year, df['fecha'].dt.month, df['fecha'].dt.day
     
     fechas = df.copy().drop('fecha', axis=1)
     precios = x_total.pop('precio')
